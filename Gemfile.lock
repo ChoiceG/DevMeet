@@ -229,7 +229,7 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
-    puma (5.0.0)
+    puma (6.6.0)
       nio4r (~> 2.0)
     raabro (1.4.0)
     racc (1.8.1)
@@ -414,7 +414,7 @@ DEPENDENCIES
   mailgun-ruby
   pg (~> 1.1)
   propshaft
-  puma (= 5.0)
+  puma (= 6.6.0)
   rails (= 8.0.0)
   rubocop-rails-omakase
   sassc-rails
