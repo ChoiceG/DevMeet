@@ -83,7 +83,7 @@ end
 ruby "3.3.6"
 
 # Use to load ruby on rails
-gem "webrick", "1.9"
+gem "webrick", "1.9.1"
 
 # Use to manage mailer sending messages through web app
 gem "mailgun-ruby"
