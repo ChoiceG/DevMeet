@@ -1,0 +1,87 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { controller: "pro-payment", action: "submit->pro-payment#submit" }) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+
+<%= hidden_field_tag 'plan', params[:plan] %>
+
+<div class="mx-1 mx-md-4">
+    <!-- Email Field -->
+    <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter email' %>
+        </div>
+    </div>
+
+    <!-- Password Field -->
+    <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Enter password' %>
+        </div>
+    </div>
+
+    <!-- Password Confirmation Field -->
+    <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Confirm password' %>
+        </div>
+    </div>
+
+
+    <div class="d-flex flex-row align-items-center mb-4">
+        <i class=" fa-solid fa-credit-card fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <div id="card-element" data-target-pro-payment="cardElement"></div>
+            <div id=" card-errors" role="alert" data-target-pro-payment="cardErrors"></div>
+        </div>
+    </div>
+
+    <!-- Hidden Input Field for Stripe Token -->
+    <input type="hidden" name="stripeToken" data-target-pro-payment="stripeToken" />
+
+    <!-- Hidden input to store the Price ID (Pro plan) -->
+    <input type="hidden" id="price_id" name="price_id" value="price_1QdCqEE1sSOCEmuor86NKBoA" />
+
+    <!-- Hidden input for the plan_id (Pro plan) -->
+    <input type="hidden" name="plan" value="2" /> <!-- Pro Plan -->
+
+    <!-- <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fa-solid fa-shield fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <%= label_tag :card_code, "Security Code on Card (CVC)" %>
+            <%= text_field_tag :card_code, nil, name: nil, class: "form-control", placeholder: 'Enter Security Code' %>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row align-items-center mb-4">
+    <i class="fa-solid fa-calendar-days fa-lg me-3 fa-fw"></i>
+    <div data-mdb-input-init class="form-outline flex-fill mb-0">
+        <%= label_tag :card_month, "Card Expiration" %>
+        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year + 15}, {name: nil, id: "card_year"} %>
+    </div>
+    </div> -->
+
+    <!-- Terms of Service Agreement -->
+    <!-- <div class="form-check d-flex justify-content-center mb-5">
+            <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+            <label class="form-check-label" for="form2Example3c">
+                I agree to all statements in <a href="#!">Terms of service</a>
+            </label>
+    </div> -->
+
+    <!-- Submit Button -->
+    <div class=" d-flex justify-content-center mx-4 mb-3 mb-lg-0">
+        <%= f.submit "Sign up and Pay", class: 'btn btn-success', id: 'submitButton', data: { pro_payment_target: "submitButton" } %>
+    </div>
+    <% end %>
+</div>
+
+</div>

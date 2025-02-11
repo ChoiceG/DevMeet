@@ -1,0 +1,47 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: true } ) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
+
+<%= hidden_field_tag 'plan', params[:plan] %>
+
+<form class="mx-1 mx-md-4">
+    <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Enter email' %>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %>
+            <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Enter password' %>
+        </div>
+    </div>
+
+    <div class="d-flex flex-row align-items-center mb-4">
+        <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+        <div data-mdb-input-init class="form-outline flex-fill mb-0">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Confirm password' %>
+        </div>
+    </div>
+
+    <!-- <div class="form-check d-flex justify-content-center mb-5">
+        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
+        <label class="form-check-label" for="form2Example3">
+            I agree to all statements in <a href="#!">Terms of service</a>
+        </label>
+        </div> -->
+
+    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-">
+        <%= f.submit "Sign up",  disable_with: 'Submiting...', class: 'btn btn-success' %>
+    </div>
+    <% end %>
+</form>
+
+</div>

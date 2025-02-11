@@ -87,6 +87,7 @@ production:
     database: dev_meet_production
     username: postgres
     password: "@White190"
+    secret_base_key: <%= ENV['SECRET_BASE_KEY'] %>
   cache:
     <<: *primary_production
     database: dev_meet_production_cache
