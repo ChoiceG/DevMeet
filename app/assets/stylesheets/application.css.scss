@@ -8,3 +8,10 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+ @import "bootstrap";
+ @import "font-awesome";
+ 
+ // Typography Styles
+ body {
+    font-family: "Open Sans", sans-serif;
+ }
