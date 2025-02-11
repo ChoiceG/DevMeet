@@ -7,6 +7,5 @@
 # stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
 #
 production:
-#   stripe_api_key: <your-key>
-#   stripe_publishable_key: <your-key>
+
 SECRET_BASE_KEY: 2f9cbe039baa47293d1e368dfdcf99cb955906c7429e654e3485b9132d468efbbcbae45d1105643a781f6f615d3180b16d916a94f775b840693630a02240d303
